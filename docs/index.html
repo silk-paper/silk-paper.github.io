@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SILK: Smooth Interpolation Framework for Motion In-betweening</title>
+    <meta name="description" content="Simple yet powerful transformer-based model for solving motion in-betweening tasks">
+
+    <meta property="og:title" content="SILK: Smooth Interpolation Framework for Motion In-betweening">
+    <meta property="og:description" content="Simple yet powerful transformer-based model for solving motion in-betweening tasks">
+    <meta property="og:image" content="https://silk-paper.github.io/silk/static/assets/teaser.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="https://silk-paper.github.io/silk/static/assets/teaser.png">
+    <meta property="og:url" content="https://silk-paper.github.io/silk/">
+    <link rel="canonical" href="https://silk-paper.github.io/silk/">
+
+    <style>
+      :root {
+        --accent-color: rgb(6, 69, 173);
+        --fg-color: rgb(32, 33, 34);
+        --bg-color: #fff;
+        --max-content-width: 950px;
+      }
+
+      body {
+        font-family: sans-serif;
+        font-size: calc(12px + 0.05vw);
+        color: var(--fg-color);
+        background-color: var(--bg-color);
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      main {
+        margin: 0 auto;
+        width: 90vw;
+        max-width: var(--max-content-width);
+        padding: 2rem 0;
+        background-color: var(--bg-color);
+        min-height: 90vh;
+      }
+
+      h1, h2 {
+        margin-top: 1.3em;
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 2.2em;
+      }
+
+      h2 {
+        font-weight: 600;
+        font-size: 1.9em;
+      }
+
+      h3 {
+        font-weight: 400;
+        font-size: 2.2em;
+        text-align: center;;
+      }
+
+      p, li {
+        font-size: 1.3em;
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--accent-color);
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;   
+      }
+    </style>
+
+  </head>
+  <body>
+    <main>
+      <h1 style="margin-top: 0;"><strong>SILK</strong>: <b>S</b>mooth <b>I</b>nterpo<b>L</b>ation framewor<b>K</b> for Motion In-betweening</h1>
+      <div>
+        <span style="font-style: italic; font-size: 1.3em;">In submission</span>
+        <p style="line-height: 1.5;">
+          <span style="display: block; text-transform: uppercase;">Anonymous Authors</span>
+        </p>
+      </div>
+      <p>
+        <picture>
+          <source srcset="static/assets/teaser.avif" type="image/avif">
+          <source srcset="static/assets/teaser.webp" type="image/webp">
+          <img alt="teaser-silk" src="static/assets/teaser.png" width="2914" height="1016">
+        </picture>
+      </p>
+
+      <h2>Abstract</h2>
+      <p>
+        Motion in-betweening is a critical tool for animators to create believable animations, allowing for nuanced control over pose-level details in each key frame. In this work, we present a simple yet effective transformer-based framework, for synthesizing realistic motions for motion in-betweening tasks. We demonstrate that the choice of pose representation significantly impacts the quality of the synthesized motions. Our model, a standard transformer encoder, consistently matches or surpasses the existing learning-based solutions across all metrics on the LAFAN1 benchmark and in a user study. SILK generalizes better to longer sequences and significantly outperforms alternatives when extrapolating to an unseen number of in-betweening frames. We also address the lack of a consistent methodology for evaluating and comparing existing solutions within the realm of learning-based motion in-betweening by introducing a cross-validation setup for the LAFAN1 dataset.
+      </p>
+
+      <h2>Results</h2>
+      <p>
+        We show side-by-side comparison of the generated motions for the LAFAN1 dataset at lengths of 5, 15, 30, and 45. In each video, SILK results are shown on the left (in <span style="color: #86a79e; font-weight: 600;">TEAL</span>) and the baseline results are shown on the right (in <span style="color: #b19c79; font-weight: 600;">TAUPE</span>). Note that all models have only been trained on lengths of 5, 15, and 30. The results for length 45 are extrapolations.
+      </p>
+
+      <p>
+        The videos are shown at half-speed for comparison purposes. The playback rate can be adjusted by clicking on the settings icon in the video player or using the buttons.
+      </p>
+
+      <h3>Length = 5</h3>
+      <div style="text-align: center;">
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 2.0)))();">100%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 1.0)))();">50%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.5)))();">25%</button>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video autoplay controls muted loop>
+            <source src="static/results/anim1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video autoplay controls muted loop>
+            <source src="static/results/anim2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h3>Length = 15</h3>
+      <div style="text-align: center;">
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 2.0)))();">100%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 1.0)))();">50%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.5)))();">25%</button>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video poster="" id="tree" autoplay="" controls="" muted="" loop="">
+            <source src="static/results/anim3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video poster="" id="tree" autoplay="" controls="" muted="" loop="">
+            <source src="static/results/anim4.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h3>Length = 30</h3>
+      <div style="text-align: center;">
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 2.0)))();">100%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 1.0)))();">50%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.5)))();">25%</button>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video poster="" id="tree" autoplay="" controls="" muted="" loop="">
+            <source src="static/results/anim5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video poster="" id="tree" autoplay="" controls="" muted="" loop="">
+            <source src="static/results/anim6.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h3>Length = 45</h3>
+      <div style="text-align: center;">
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 2.0)))();">100%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 1.0)))();">50%</button>
+        <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.5)))();">25%</button>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video poster="" id="tree" autoplay="" controls="" muted="" loop="">
+            <source src="static/results/anim7.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <video poster="" id="tree" autoplay="" controls="" muted="" loop="">
+            <source src="static/results/anim8.mp4" type="video/mp4">
+        </video>
+      </div>
+
+  </body>
+</html>
