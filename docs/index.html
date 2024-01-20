@@ -204,13 +204,13 @@
         </p>
 
         <p>
-          The videos are shown at full speed (100%) by default.
+          The videos are shown at half speed (50%) by default.
         </p>
 
         <div style="text-align: center;">
-          <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 1.0)))();">100%</button>
-          <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.5)))();">50%</button>
-          <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.25)))();">25%</button>
+          <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 2.0)))();">100%</button>
+          <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 1.0)))();">50%</button>
+          <button onclick="(() => (document.querySelectorAll('video').forEach((e) => e.playbackRate = 0.5)))();">25%</button>
         </div>
         <div style="position: relative; padding-bottom: 56.25%;">
           <video autoplay controls muted loop>
