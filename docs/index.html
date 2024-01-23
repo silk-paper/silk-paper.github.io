@@ -94,7 +94,7 @@
   </head>
   <body>
     <main>
-      <h1 style="margin-top: 0;"><strong>SILK</strong>: <b>S</b>mooth <b>I</b>nterpo<b>L</b>ation framewor<b>K</b> for Motion In-betweening</h1>
+      <h1 style="margin-top: 0;"><strong>SILK</strong>: <b>S</b>mooth <b>I</b>nterpo<b>L</b>ation framewor<b>K</b> for motion in-betweening</h1>
       <div>
         <span style="font-style: italic; font-size: 1.3em;">In submission</span>
         <p style="line-height: 1.5;">
@@ -237,6 +237,23 @@
             <source src="static/results/anim14.mp4" type="video/mp4">
           </video>
         </div>
+      </section>
+
+      <section>
+        <h2>Pose Representation Comparison – t-SNE Visualization</h2>
+        <p>
+          Based on both PCA and t-SNE plots, we see more distinct clusters in the data within the root-space, each associated with different animation types. Some action types have natural overlap, e.g., walking and running motions exist in other action classes, while others should be clearly distinct. Our hypothesis is that the more structured the data is in the reduced dimension, the easier it is for the model to make predictions.
+        </p>
+
+        <p>
+          To quantify the clustering, we cluster the data in both the PCA and the t-SNE space using k-means and compute the v-score. The v-score assesses completeness and homogeneity of clusters with respect to the provided ground truth labels. For PCA, on root and local features, we find a v-score of 0.2317 and 0.191 respectively. For t-SNE, we record a v-score of 0.41 for root features and 0.32 for local features. 
+        </p>
+
+        <h3>t-SNE – Local-to-Parent Space</h3>
+        <img src="static/results/TSNE_local_to_parent.gif" alt="tsne" width="100%" height="auto">
+
+        <h3>t-SNE – Root Space</h3>
+        <img src="static/results/TSNE_root_space.gif" alt="tsne" width="100%" height="auto">
       </section>
 
   </body>
